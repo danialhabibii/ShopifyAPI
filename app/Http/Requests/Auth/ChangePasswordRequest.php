@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordRequest extends FormRequest
 {
@@ -17,5 +18,12 @@ class ChangePasswordRequest extends FormRequest
             'old_password' => ['required', 'string'],
             'new_password' => ['required', 'string', 'min:6', 'max:30']
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'new_password' => Hash::make($this->new_password),
+        ]);
     }
 }
