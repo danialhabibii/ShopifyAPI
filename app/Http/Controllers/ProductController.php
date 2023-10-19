@@ -16,11 +16,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
     public function __construct()
     {
         $this->middleware('auth:sanctum')->only(['create', 'update', 'destroy', 'newComment']);
