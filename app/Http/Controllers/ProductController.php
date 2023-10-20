@@ -53,6 +53,7 @@ class ProductController extends Controller
         return $this->ok();
     }
 
+
     public function search(Product $product)
     {
         return $this->ok(
